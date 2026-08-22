@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lichen collection voids — state sheets</title>
+<style>
+  :root { --bg:#1a1a1a; --panel:#212121; --fg:#e8e8e8; --dim:#909090;
+          --red:#FF4444; --blue:#5B85FF; --rule:#3a3a3a; }
+  * { box-sizing: border-box; }
+  body { margin:0; padding:10px 14px; background:var(--bg); color:var(--fg);
+         font:14px/1.5 "Segoe UI", system-ui, sans-serif; }
+  a { color: inherit; text-decoration: underline dotted; }
+  a:hover { text-decoration: underline; }
+  header { display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;
+           margin-bottom:8px; }
+  h1 { font-size:15px; font-weight:600; margin:0; }
+  select, button { background:#2a2a2a; color:var(--fg); border:1px solid #444;
+                   padding:3px 8px; font:inherit; border-radius:3px; }
+  button { cursor:pointer; }
+  #stats { color:var(--dim); font-variant-numeric:tabular-nums; }
+  #stats .red  { color:var(--red); }
+  #stats .blue { color:var(--blue); }
+
+  main { display:grid; gap:14px; align-items:start;
+         grid-template-columns: minmax(0,1fr) 380px; }
+  main.solo { grid-template-columns: minmax(0,1fr); }
+
+  #sheetwrap { min-width:0; }
+  img { width:100%; height:auto; display:block; background:#111; }
+  body.fit img { width:auto; max-width:100%;
+                 max-height: calc(100vh - 120px); margin:0 auto; }
+
+  #note { background:var(--panel); border:1px solid var(--rule);
+          border-radius:4px; padding:14px 16px;
+          position:sticky; top:10px;
+          max-height: calc(100vh - 90px); overflow:auto; }
+  main.solo #note { display:none; }
+  #note h2 { font-size:14px; margin:0 0 8px 0; }
+  #note .meta { color:var(--dim); font-size:12px; margin-bottom:10px;
+                border-bottom:1px solid var(--rule); padding-bottom:8px; }
+  #note p { margin:0 0 10px 0; }
+
+  footer { color:var(--dim); font-size:12px; margin-top:10px; }
+
+  @media (max-width: 1100px) {
+    main { grid-template-columns: minmax(0,1fr); }
+    #note { position:static; max-height:none; }
+    body.fit img { max-height:none; }
+  }
+</style>
+</head>
+<body class="fit">
+<header>
+  <h1>Lichen collection voids</h1>
+  <select id="pick"></select>
+  <button id="prev">&larr;</button>
+  <button id="next">&rarr;</button>
+  <button id="zoom">full size</button>
+  <span id="stats"></span>
+</header>
+
+<main id="main">
+  <div id="sheetwrap"><img id="sheet" alt="state sheet"></div>
+  <aside id="note"></aside>
+</main>
+
+<footer>Arrow keys step between sheets.
+  <span style="color:#FF4444">&#9670;</span> largest void &nbsp;
+  <span style="color:#5B85FF">&#9670;</span> densest cell &nbsp;
+  coordinates link to OpenStreetMap.</footer>
+
+<script>
+const S = [
+{a:"AL",n:"Alabama",mx:34.65,md:17.3,er:2,ed:"TRUE",elat:32.06719,elon:-87.33791,ax:988,alat:34.3843,alon:-87.45693,note:false},
+{a:"AR",n:"Arkansas",mx:59.74,md:17.45,er:3.42,ed:"TRUE",elat:33.11895,elon:-91.5059,ax:946,alat:34.57589,alon:-93.03539,note:false},
+{a:"AZ",n:"Arizona",mx:61.13,md:17.15,er:3.57,ed:"TRUE",elat:32.15964,elon:-113.61201,ax:1733,alat:31.88713,alon:-109.18341,note:false},
+{a:"CA",n:"California",mx:50.03,md:17.35,er:2.88,ed:"TRUE",elat:32.69848,elon:-115.54148,ax:2396,alat:33.93901,alon:-120.08608,note:false},
+{a:"CO",n:"Colorado",mx:57.12,md:17.15,er:3.33,ed:"TRUE",elat:38.76576,elon:-102.20383,ax:1487,alat:40.00193,alon:-105.4069,note:false},
+{a:"CT",n:"Connecticut",mx:null,md:null,er:null,ed:"FALSE",elat:null,elon:null,ax:682,alat:41.98417,alon:-73.31439,note:false},
+{a:"DE",n:"Delaware",mx:null,md:null,er:null,ed:"FALSE",elat:null,elon:null,ax:255,alat:39.80478,alon:-75.64587,note:false},
+{a:"FL",n:"Florida",mx:17.44,md:17.16,er:1.02,ed:"FALSE",elat:26.89599,elon:-80.61211,ax:2753,alat:28.75286,alon:-81.18669,note:false},
+{a:"GA",n:"Georgia",mx:28.01,md:17.19,er:1.63,ed:"TRUE",elat:31.06836,elon:-84.75518,ax:831,alat:34.72707,alon:-84.0029,note:false},
+{a:"IA",n:"Iowa",mx:19.75,md:17.37,er:1.14,ed:"FALSE",elat:43.05985,elon:-93.88709,ax:1774,alat:42.91717,alon:-91.81927,note:false},
+{a:"ID",n:"Idaho",mx:38.58,md:17.6,er:2.19,ed:"TRUE",elat:42.73305,elon:-113.57279,ax:895,alat:48.28021,alon:-116.80167,note:false},
+{a:"IL",n:"Illinois",mx:33.18,md:17.34,er:1.91,ed:"TRUE",elat:38.23572,elon:-88.39244,ax:1053,alat:37.52362,alon:-88.67446,note:false},
+{a:"IN",n:"Indiana",mx:44.41,md:17.52,er:2.53,ed:"TRUE",elat:40.40457,elon:-86.18902,ax:525,alat:39.03447,alon:-86.2127,note:false},
+{a:"KS",n:"Kansas",mx:60.93,md:17.88,er:3.41,ed:"TRUE",elat:37.61879,elon:-101.08634,ax:861,alat:38.8338,alon:-95.14542,note:false},
+{a:"KY",n:"Kentucky",mx:33.7,md:17.39,er:1.94,ed:"TRUE",elat:37.19266,elon:-85.45383,ax:492,alat:37.00279,alon:-83.19809,note:false},
+{a:"LA",n:"Louisiana",mx:51.69,md:17.4,er:2.97,ed:"TRUE",elat:32.95113,elon:-91.41114,ax:3590,alat:30.45866,alon:-91.05114,note:false},
+{a:"MA",n:"Massachusetts",mx:null,md:null,er:null,ed:"FALSE",elat:null,elon:null,ax:522,alat:42.23894,alon:-71.27185,note:true},
+{a:"MD",n:"Maryland",mx:17.15,md:17.15,er:1,ed:"FALSE",elat:38.29976,elon:-76.85702,ax:1346,alat:38.28058,alon:-75.53374,note:false},
+{a:"ME",n:"Maine",mx:32.71,md:17.39,er:1.88,ed:"TRUE",elat:46.71023,elon:-69.95581,ax:2162,alat:44.3018,alon:-68.26337,note:false},
+{a:"MI",n:"Michigan",mx:33.75,md:17.43,er:1.94,ed:"TRUE",elat:42.58224,elon:-82.61807,ax:3249,alat:48.10547,alon:-88.69958,note:false},
+{a:"MN",n:"Minnesota",mx:36.06,md:17.53,er:2.06,ed:"TRUE",elat:48.18724,elon:-95.50374,ax:2555,alat:48.44042,alon:-92.85775,note:false},
+{a:"MO",n:"Missouri",mx:20.27,md:17.22,er:1.18,ed:"FALSE",elat:38.26066,elon:-94.25826,ax:1210,alat:36.68739,alon:-92.84469,note:false},
+{a:"MS",n:"Mississippi",mx:42.79,md:17.36,er:2.46,ed:"TRUE",elat:33.50491,elon:-91.06304,ax:804,alat:31.03458,alon:-90.86347,note:false},
+{a:"MT",n:"Montana",mx:100.44,md:17.9,er:5.61,ed:"TRUE",elat:48.92936,elon:-106.02382,ax:888,alat:45.86538,alon:-111.95722,note:false},
+{a:"NC",n:"North Carolina",mx:17.7,md:17.05,er:1.04,ed:"FALSE",elat:35.44648,elon:-81.8273,ax:4490,alat:35.52946,alon:-83.48531,note:false},
+{a:"ND",n:"North Dakota",mx:83.6,md:17.79,er:4.7,ed:"TRUE",elat:46.08054,elon:-101.7535,ax:1189,alat:46.9203,alon:-103.50316,note:false},
+{a:"NE",n:"Nebraska",mx:58.68,md:18.03,er:3.26,ed:"TRUE",elat:41.94997,elon:-102.43252,ax:365,alat:41.87053,alon:-103.61822,note:false},
+{a:"NH",n:"New Hampshire",mx:17.48,md:17.44,er:1,ed:"FALSE",elat:42.97775,elon:-71.37636,ax:2400,alat:44.22235,alon:-71.20525,note:false},
+{a:"NJ",n:"New Jersey",mx:17.37,md:17.31,er:1,ed:"FALSE",elat:40.2558,elon:-74.25529,ax:1563,alat:39.70255,alon:-74.68378,note:false},
+{a:"NM",n:"New Mexico",mx:89.38,md:18.03,er:4.96,ed:"TRUE",elat:34.283,elon:-103.71608,ax:726,alat:35.7537,alon:-105.7281,note:false},
+{a:"NV",n:"Nevada",mx:54.44,md:18.14,er:3,ed:"TRUE",elat:41.11974,elon:-116.56653,ax:487,alat:38.98805,alon:-114.27949,note:false},
+{a:"NY",n:"New York",mx:33.49,md:17.37,er:1.93,ed:"TRUE",elat:44.78299,elon:-75.35609,ax:600,alat:44.30448,alon:-73.91782,note:false},
+{a:"OH",n:"Ohio",mx:49.31,md:17.4,er:2.83,ed:"TRUE",elat:41.13122,elon:-84.501,ax:767,alat:38.77357,alon:-83.51607,note:false},
+{a:"OK",n:"Oklahoma",mx:50.85,md:17.62,er:2.89,ed:"TRUE",elat:34.17134,elon:-98.39508,ax:416,alat:34.19138,alon:-94.65248,note:false},
+{a:"OR",n:"Oregon",mx:46.03,md:17.83,er:2.58,ed:"TRUE",elat:42.48687,elon:-118.09049,ax:1325,alat:44.42551,alon:-122.00566,note:false},
+{a:"PA",n:"Pennsylvania",mx:42.52,md:17.32,er:2.46,ed:"TRUE",elat:40.66645,elon:-79.34084,ax:863,alat:41.18053,alon:-74.97674,note:false},
+{a:"RI",n:"Rhode Island",mx:null,md:null,er:null,ed:"FALSE",elat:null,elon:null,ax:468,alat:41.53384,alon:-71.76269,note:false},
+{a:"SC",n:"South Carolina",mx:27.98,md:17.13,er:1.63,ed:"TRUE",elat:34.00457,elon:-81.61035,ax:1389,alat:34.97803,alon:-83.0952,note:false},
+{a:"SD",n:"South Dakota",mx:91.43,md:17.96,er:5.09,ed:"TRUE",elat:45.94206,elon:-101.90725,ax:1041,alat:43.80465,alon:-103.47111,note:false},
+{a:"TN",n:"Tennessee",mx:41.36,md:17.35,er:2.38,ed:"TRUE",elat:35.57476,elon:-89.74626,ax:2685,alat:35.68466,alon:-83.49258,note:false},
+{a:"TX",n:"Texas",mx:110,md:27.81,er:3.96,ed:"TRUE",elat:32.39191,elon:-102.60624,ax:1454,alat:29.26965,alon:-103.22999,note:false},
+{a:"UT",n:"Utah",mx:45.99,md:17.31,er:2.66,ed:"TRUE",elat:39.76173,elon:-113.52595,ax:407,alat:37.66338,alon:-112.75617,note:false},
+{a:"VA",n:"Virginia",mx:17.65,md:17.07,er:1.03,ed:"FALSE",elat:37.06553,elon:-82.09016,ax:1703,alat:38.59417,alon:-78.36955,note:false},
+{a:"VT",n:"Vermont",mx:17.42,md:17.38,er:1,ed:"FALSE",elat:43.31304,elon:-72.77104,ax:1244,alat:43.85149,alon:-73.12698,note:false},
+{a:"WA",n:"Washington",mx:19.1,md:17.72,er:1.08,ed:"FALSE",elat:46.4093,elon:-118.38811,ax:1594,alat:46.49944,alon:-121.78147,note:false},
+{a:"WI",n:"Wisconsin",mx:19.7,md:17.48,er:1.13,ed:"FALSE",elat:45.19274,elon:-91.97099,ax:1158,alat:46.41645,alon:-91.19844,note:false},
+{a:"WV",n:"West Virginia",mx:28.2,md:17.22,er:1.64,ed:"TRUE",elat:37.49528,elon:-81.92613,ax:956,alat:38.67653,alon:-79.51194,note:false},
+{a:"WY",n:"Wyoming",mx:50.01,md:17.55,er:2.85,ed:"TRUE",elat:42.62406,elon:-107.92276,ax:557,alat:44.85857,alon:-110.35686,note:false},];
+</script>
+<script type="text/plain" id="note-MA">
+apex_place: near Dover, Norfolk County
+apex_mechanism: georeferencing
+
+The densest cell in Massachusetts is not where one would guess. It sits
+in Norfolk County, in the region of the town of Dover and near Wellesley College. 
+
+Clara Cummings collected extensively in this region, but she died in the
+early twentieth century. So to the extent her work drives this cell, the
+density is not the result of her collecting alone — it is the result of
+subsequent geolocation work, of someone much later assigning latitudes and
+longitudes to her records. Material of hers that was never georeferenced
+does not appear on this map at all.
+
+apex cell: 140692 at 42.2389 N, 71.2719 W
+  summary says 522 specimens
+  records in cell: 522
+  distinct collectors: 33   undated records: 17
+  year range: 1853 - 2010
+
+  top collectors:
+          recordedByEd   n first last
+     Cummings,C.E.,Ms. 383  1853 1898
+                E. Lay  35  1991 2010
+          S. Higginson  29  1883 1888
+         G. P. Clinton   8  1900 1900
+      Vinnie J. Libbey   8  1892 1892
+        C. A. Cummings   7  1892 1892
+ Collector unspecified   5  1884 1896
+          L. W. Riddle   5  1883 1908
+
+  by decade:
+ decade   n
+   1850   1
+   1880  83
+   1890 359
+   1900  18
+   1910   2
+   1920   4
+   1930   3
+   1990  26
+   2010   9
+
+
+The summary reveals problems in the data set. Cummings was not collecting in 
+1853, that record almost certainly is 1883.
+Her name is not uniformly represented (though in the 383 instances has been
+regularized by me).
+
+That makes this apex region and count a useful reminder about what these sheets show. A bright
+cell records where specimens have been collected, accessioned, databased,
+and given coordinates. The last of those steps happened a century after the
+first, and it happened unevenly.
+
+Massachusetts also has no unattested cells at this grain — every cell in
+the state holds at least one record. That is a statement about an 18.2 km
+grid as much as about the collecting, and it sits oddly beside the
+widespread belief that the state is picked over and no longer worth
+working.
+
+</script>
+<script>
+const pick  = document.getElementById('pick');
+const sheet = document.getElementById('sheet');
+const stats = document.getElementById('stats');
+const note  = document.getElementById('note');
+const main  = document.getElementById('main');
+let i = 0;
+
+S.forEach((s, k) => {
+  const o = document.createElement('option');
+  o.value = k;
+  o.textContent = s.a + ' — ' + s.n + (s.note ? ' *' : '');
+  pick.appendChild(o);
+});
+
+function esc(t) {
+  return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function osm(lat, lon, label, cls) {
+  const url = 'https://www.openstreetmap.org/?mlat=' + lat + '&mlon=' + lon
+            + '#map=11/' + lat + '/' + lon;
+  return '<a class="' + cls + '" href="' + url + '" target="_blank" '
+       + 'rel="noopener">' + label + '</a>';
+}
+
+/* Notes are plain text: blank lines separate paragraphs, and two optional
+   leading fields become a subhead. */
+function renderNote(txt, s) {
+  const lines = txt.replace(/\r/g,'').split('\n');
+  let place = '', mech = '', start = 0;
+  for (let k = 0; k < lines.length && k < 6; k++) {
+    const m = lines[k].match(/^(apex_place|apex_mechanism):\s*(.*)$/);
+    if (m) { if (m[1] === 'apex_place') place = m[2]; else mech = m[2];
+             start = k + 1; }
+    else if (lines[k].trim() !== '') break;
+  }
+  const body = lines.slice(start).join('\n').trim();
+  let html = '<h2>' + esc(s.n) + '</h2>';
+  const bits = [];
+  if (place) bits.push(esc(place));
+  if (mech)  bits.push(esc(mech));
+  if (bits.length) html += '<div class="meta">densest cell: '
+                         + bits.join(' &middot; ') + '</div>';
+  html += body.split(/\n\s*\n/).map(p => '<p>' + esc(p.trim()) + '</p>').join('');
+  return html;
+}
+
+function show(k, push) {
+  i = (k + S.length) % S.length;
+  const s = S[i];
+  if (push !== false)
+    history.replaceState(null, '', '?state=' + s.a);
+  sheet.src = 'grand_void_' + s.a + '.png';
+  pick.value = i;
+
+  let t = '';
+  if (s.mx === null) {
+    t = 'no unattested cells at this grain';
+  } else {
+    t = 'largest void ' + osm(s.elat, s.elon, s.mx.toFixed(1) + ' km', 'red')
+      + ' · median ' + s.md.toFixed(1) + ' km'
+      + (s.ed === 'TRUE' ? '' : ' · epitome suppressed');
+  }
+  if (s.ax !== null)
+    t += ' · densest cell '
+       + osm(s.alat, s.alon, s.ax.toLocaleString() + ' specimens', 'blue');
+  stats.innerHTML = t;
+
+  const el = document.getElementById('note-' + s.a);
+  if (el) { note.innerHTML = renderNote(el.textContent, s);
+            main.classList.remove('solo'); }
+  else    { note.innerHTML = ''; main.classList.add('solo'); }
+}
+
+pick.addEventListener('change', e => show(+e.target.value));
+document.getElementById('prev').addEventListener('click', () => show(i - 1));
+document.getElementById('next').addEventListener('click', () => show(i + 1));
+document.getElementById('zoom').addEventListener('click', e => {
+  document.body.classList.toggle('fit');
+  e.target.textContent = document.body.classList.contains('fit')
+    ? 'full size' : 'fit to window';
+});
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'SELECT') return;
+  if (e.key === 'ArrowLeft')  show(i - 1);
+  if (e.key === 'ArrowRight') show(i + 1);
+});
+
+/* Open on the state named in the query string, if there is one. */
+const want = new URLSearchParams(location.search).get('state');
+const at = want ? S.findIndex(s => s.a === want.toUpperCase()) : -1;
+show(at >= 0 ? at : 0, false);
+</script>
+</body>
+</html>

@@ -47,6 +47,10 @@
     main { grid-template-columns: minmax(0,1fr); }
     #note { position:static; max-height:none; }
     body.fit img { max-height:none; }
+
+    #note pre { font: 12px/1.4 ui-monospace, Consolas, monospace;
+              color: var(--dim); white-space: pre-wrap;
+              overflow-x: auto; margin: 0 0 10px 0; }
   }
 </style>
 </head>
@@ -226,7 +230,13 @@ function renderNote(txt, s) {
   if (mech)  bits.push(esc(mech));
   if (bits.length) html += '<div class="meta">densest cell: '
                          + bits.join(' &middot; ') + '</div>';
-  html += body.split(/\n\s*\n/).map(p => '<p>' + esc(p.trim()) + '</p>').join('');
+  #html += body.split(/\n\s*\n/).map(p => '<p>' + esc(p.trim()) + '</p>').join('');
+  html += body.split(/\n\s*\n/).map(p => {
+    const t = p.replace(/\n+$/,'');
+    return /\n[ \t]|  |\t/.test(t)
+      ? '<pre>' + esc(t) + '</pre>'
+      : '<p>' + esc(t.trim()) + '</p>';
+  }).join('');
   return html;
 }
 

@@ -230,7 +230,7 @@ function renderNote(txt, s) {
   if (mech)  bits.push(esc(mech));
   if (bits.length) html += '<div class="meta">densest cell: '
                          + bits.join(' &middot; ') + '</div>';
-  #html += body.split(/\n\s*\n/).map(p => '<p>' + esc(p.trim()) + '</p>').join('');
+  // html += body.split(/\n\s*\n/).map(p => '<p>' + esc(p.trim()) + '</p>').join('');
   html += body.split(/\n\s*\n/).map(p => {
     const t = p.replace(/\n+$/,'');
     return /\n[ \t]|  |\t/.test(t)

@@ -185,6 +185,35 @@ widespread belief that the state is picked over and no longer worth
 working.
 
 </script>
+<script type="text/plain" id="note-_intro">
+apex_place: how to read a sheet
+
+Each sheet divides a state into hexagonal cells about 18 km across. A cell is
+one of two things and never both.
+
+Cyan means the cell holds at least one record, with brightness giving the
+number of specimens on a log scale. Plasma — blue through yellow — means the
+cell holds no record, with colour giving the distance to the nearest cell that
+does.
+
+The two are separate measurements with no conversion between them. The eye
+fuses them into a single sense of how well the ground is known, which is a
+fair reading, but only as an ordering: the map supports "this is better known
+than that" and does not support arithmetic.
+
+The red diamond marks the centre of the largest record-free circle, and the
+blue diamond the cell holding the most specimens. Either is omitted where it
+would mark a tie rather than a standout.
+
+An empty cell does not mean nobody has collected there. It means no record
+meeting the study requirements was produced — the specimen may be
+undatabased, held without coordinates, too vaguely localised to place, or
+determined only to genus.
+
+Use the selector to choose a state, or the arrow keys to step through all
+forty-eight.
+
+</script>
 <script>
 const pick  = document.getElementById('pick');
 const sheet = document.getElementById('sheet');
@@ -192,6 +221,9 @@ const stats = document.getElementById('stats');
 const note  = document.getElementById('note');
 const main  = document.getElementById('main');
 let i = 0;
+{ const o = document.createElement('option');
+  o.value = ''; o.textContent = 'how to read a sheet';
+  pick.appendChild(o); }
 
 S.forEach((s, k) => {
   const o = document.createElement('option');
@@ -266,9 +298,23 @@ function show(k, push) {
   else    { note.innerHTML = ''; main.classList.add('solo'); }
 }
 
-pick.addEventListener('change', e => show(+e.target.value));
-document.getElementById('prev').addEventListener('click', () => show(i - 1));
-document.getElementById('next').addEventListener('click', () => show(i + 1));
+function intro() {
+  i = -1;
+  history.replaceState(null, '', location.pathname);
+  sheet.src = 'void_sheet_annotated.png';
+  pick.value = '';
+  stats.innerHTML = 'how to read a sheet';
+  const el = document.getElementById('note-_intro');
+    if (el) { note.innerHTML = renderNote(el.textContent, {n: 'How to read a sheet'});
+            main.classList.remove('solo'); }
+  else    { note.innerHTML = ''; main.classList.add('solo'); }
+}
+
+pick.addEventListener('change', e => {
+  if (e.target.value === '') intro(); else show(+e.target.value);
+});
+document.getElementById('prev').addEventListener('click', () => show(i < 0 ? S.length - 1 : i - 1));
+document.getElementById('next').addEventListener('click', () => show(i < 0 ? 0 : i + 1));
 document.getElementById('zoom').addEventListener('click', e => {
   document.body.classList.toggle('fit');
   e.target.textContent = document.body.classList.contains('fit')
@@ -276,14 +322,14 @@ document.getElementById('zoom').addEventListener('click', e => {
 });
 document.addEventListener('keydown', e => {
   if (e.target.tagName === 'SELECT') return;
-  if (e.key === 'ArrowLeft')  show(i - 1);
-  if (e.key === 'ArrowRight') show(i + 1);
+  if (e.key === 'ArrowLeft') show(i < 0 ? S.length - 1 : i - 1); 
+  if (e.key === 'ArrowRight') show(i < 0 ? 0 : i + 1);
 });
 
 /* Open on the state named in the query string, if there is one. */
 const want = new URLSearchParams(location.search).get('state');
 const at = want ? S.findIndex(s => s.a === want.toUpperCase()) : -1;
-show(at >= 0 ? at : 0, false);
+if (at >= 0) show(at, false); else intro();
 </script>
 </body>
 </html>

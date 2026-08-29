@@ -1,5 +1,5 @@
 apex_place: near Santiam Junction, Linn County
-apex_mechanism: georeferencing
+apex_mechanism: survey collecting
 
 The densest cell in heavily collected Oregon sits
 in Linn County, about an hour east of Eugene, at about 3500 ft.
@@ -35,5 +35,13 @@ on the crest of the Cascades.
    2010 240
    2020   2
 
+The Cascades were the site of systematic and extensive
+survey collecting in the early 2000's.
+I think that OSC and WTU were similarly 
+involved, but the data currently PRESENT in CLH does 
+not show that. Several explanations are possible.
 
-2026.08.26
+![](inst_footprint_2026-08-27.png)
+
+
+2026.08.29

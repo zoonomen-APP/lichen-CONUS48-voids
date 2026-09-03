@@ -123,7 +123,7 @@ const S = [
 {a:"TX",n:"Texas",mx:110,md:27.81,er:3.96,ed:"TRUE",elat:32.39191,elon:-102.60624,ax:1454,alat:29.26965,alon:-103.22999,note:false},
 {a:"UT",n:"Utah",mx:45.99,md:17.31,er:2.66,ed:"TRUE",elat:39.76173,elon:-113.52595,ax:407,alat:37.66338,alon:-112.75617,note:false},
 {a:"VA",n:"Virginia",mx:17.65,md:17.07,er:1.03,ed:"FALSE",elat:37.06553,elon:-82.09016,ax:1703,alat:38.59417,alon:-78.36955,note:false},
-{a:"VT",n:"Vermont",mx:17.42,md:17.38,er:1,ed:"FALSE",elat:43.31304,elon:-72.77104,ax:1244,alat:43.85149,alon:-73.12698,note:false},
+{a:"VT",n:"Vermont",mx:17.42,md:17.38,er:1,ed:"FALSE",elat:43.31304,elon:-72.77104,ax:1244,alat:43.85149,alon:-73.12698,note:true},
 {a:"WA",n:"Washington",mx:19.1,md:17.72,er:1.08,ed:"FALSE",elat:46.4093,elon:-118.38811,ax:1594,alat:46.49944,alon:-121.78147,note:true},
 {a:"WI",n:"Wisconsin",mx:19.7,md:17.48,er:1.13,ed:"FALSE",elat:45.19274,elon:-91.97099,ax:1158,alat:46.41645,alon:-91.19844,note:false},
 {a:"WV",n:"West Virginia",mx:28.2,md:17.22,er:1.64,ed:"TRUE",elat:37.49528,elon:-81.92613,ax:956,alat:38.67653,alon:-79.51194,note:false},
@@ -345,6 +345,46 @@ deal of Washington material.
 2026.08.30
 
 </script>
+<script type="text/plain" id="note-VT">
+A very densely sampled swampy area. 
+Sampled almost entirely by one person
+over 20 years.
+Very close to Middlebury College and 
+Lake Dunmore - a seemingly fabulous 
+area for lichen collecting, but with almost 
+no resampling for about 100 years.
+
+---- VT -- Vermont ----
+  apex cell: 136796 at 43.8515 N, 73.1270 W
+  summary says 1,244 specimens
+  records in cell: 1,244
+  distinct collectors: 21   undated records: 21
+  year range: 1885 - 2001
+
+  top collectors:
+recordedByEd	n
+	Dutton,D.L.	1198
+	Farlow,W.G.	11
+	Merrill,G.K.	11
+	Lay,E.,Ms.	3
+	[n/a]	2
+	Collector unknown	2
+	Egan,R.S.	2
+	Pringle,C.G.	2
+
+  by decade:
+ decade   n
+   1880   1
+   1890  13
+   1900  33
+   1910 172
+   1920 998
+   1930   1
+   1970   2
+   2000   3
+
+
+</script>
 <script type="text/plain" id="note-WA">
 apex_place: Gifford Pinchot NF, between Rainier, St. Helens and Adams.
 apex_mechanism: survey collecting
@@ -491,13 +531,14 @@ function show(k, push) {
   if (s.mx === null) {
     t = 'no unattested cells at this grain';
   } else {
-    t = 'largest void ' + osm(s.elat, s.elon, s.mx.toFixed(1) + ' km', 'red')
+    t = 'largest void ' + s.mx.toFixed(1) + ' km '
+      + osm(s.elat, s.elon, 'map', 'red')
       + ' · median ' + s.md.toFixed(1) + ' km'
       + (s.ed === 'TRUE' ? '' : ' · epitome suppressed');
   }
   if (s.ax !== null)
-    t += ' · densest cell '
-       + osm(s.alat, s.alon, s.ax.toLocaleString() + ' specimens', 'blue');
+    t += ' · densest cell ' + s.ax.toLocaleString() + ' records '
+       + osm(s.alat, s.alon, 'map', 'blue');
   stats.innerHTML = t;
 
   const el = document.getElementById('note-' + s.a);

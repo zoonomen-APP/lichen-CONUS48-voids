@@ -3,8 +3,9 @@ apex_place: how to read a sheet
 Each sheet divides a state into hexagonal cells about 18 km across. A cell is
 one of two things and never both.
 
-Cyan means the cell holds at least one record, with brightness giving the
-number of specimens on a log scale. Blue through yellow — means the
+Cyan means the cell holds at least one record. Brighter cyan means more
+records, on a log scale.
+Blue through yellow — means the
 cell holds no record, with colour giving the distance to the nearest cell that
 does.
 

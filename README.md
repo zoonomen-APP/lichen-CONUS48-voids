@@ -13,7 +13,7 @@ alongside the map.
 Each sheet divides the state into hexagonal cells about 18 km across. A cell
 is one of two things and never both.
 
-**Cyan** — the cell holds at least one record. Brightness is the number of
+**Cyan** — the cell holds at least one record. Brighter cyan means more
 specimen records, on a log scale, running to that state's own densest cell.
 
 **Blue through yellow** — the cell holds no record. Colour is the

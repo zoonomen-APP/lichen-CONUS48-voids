@@ -14,9 +14,9 @@ Each sheet divides the state into hexagonal cells about 18 km across. A cell
 is one of two things and never both.
 
 **Cyan** — the cell holds at least one record. Brightness is the number of
-specimens, on a log scale, running to that state's own densest cell.
+specimen records, on a log scale, running to that state's own densest cell.
 
-**Plasma, blue through yellow** — the cell holds no record. Colour is the
+**Blue through yellow** — the cell holds no record. Colour is the
 distance from that cell to the nearest cell that does hold one, running to
 that state's own maximum.
 
@@ -30,7 +30,8 @@ Not the deepest point of anything; the cells are all equally empty. It marks
 the middle of the biggest hole, and the number beside it is that hole's
 radius.
 
-**Blue diamond** — the cell holding the most specimens.
+**Blue diamond** — the cell holding the most specimen records that meet the
+requisite requirements.
 
 Either diamond is omitted where it would be marking a tie rather than a
 standout. Four states have no record-free cells at all at this grain and say
@@ -45,9 +46,9 @@ to OpenStreetMap.
 
 That sentence is doing precise work. It does not say nobody has collected
 there. It says the Consortium holds no record, carrying coordinates, passing
-the study's name filter, that places a specimen in that cell. A specimen may
-sit in a cabinet undatabased, or in the database without coordinates, or with
-a locality too vague to georeference, or determined only to genus.
+the study's name filter, that places a specimen record in that cell. A specimen may
+sit in a cabinet undatabased, be in the database without coordinates, have
+a locality too vague to georeference, or it may be determined only to genus.
 
 The colour scale on each sheet runs to that state's own range, so the same
 yellow means 110 km in Texas and 20 km in Washington. The ceiling is stated

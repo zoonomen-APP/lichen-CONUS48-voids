@@ -1,12 +1,15 @@
 apex_place: near Little Long Pond, Hancock County
-apex_mechanism: georeferencing
+apex_mechanism: Census and survey work?
 
 The densest cell in Maine is on Mount Desert Island, 
 in Hancock County. The location is not far from the coast and near Little Long Pond.
-The region and the pond were long owned by the Rockefeller family and near Seal Cove
+The region and the pond were long owned by the Rockefeller family and near Seal Harbor.
 
 The Sullivan counts include (in part) the
 extensive census work done by him on the island.
+Clifford Wetmore did extensive work on lichens
+on contract for the National Park Service, and that is
+evident here.
 
 ---- ME -- Maine ----
   apex cell: 132674 at 44.3018 N, 68.2634 W
@@ -26,7 +29,7 @@ extensive census work done by him on the island.
 	Hinds,P.L.,Ms.  56
 	Frank,E.M.,Ms.  53
 
-  by decade:
+by decade:
  decade    n
    1850    1
    1870    2
@@ -44,3 +47,17 @@ extensive census work done by him on the island.
    1990  147
    2000   42
    2010   22
+
+top 10 taxa n and % of binomial records
+n       pct     taxon
+46      2.1     Cladonia squamosa
+42      1.9     Hypogymnia physodes
+37      1.7     Lobaria pulmonaria
+35      1.6     Platismatia tuckermanii
+34      1.6     Cladonia strepsilis
+32      1.5     Cladonia uncialis
+31      1.4     Cladonia stellaris
+31      1.4     Lasallia papulosa
+30      1.4     Lobaria quercizans
+28      1.3     Parmelia saxatilis
+

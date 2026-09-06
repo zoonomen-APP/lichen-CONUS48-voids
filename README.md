@@ -16,9 +16,12 @@ is one of two things and never both.
 **Cyan** — the cell holds at least one record. Brighter cyan means more
 specimen records, on a log scale, running to that state's own densest cell.
 
-**Blue through yellow** — the cell holds no record. Colour is the
-distance from that cell to the nearest cell that does hold one, running to
-that state's own maximum.
+**Magenta through yellow** - the cell holds no record, with colour giving the
+distance to the nearest cell that does.
+
+Connecticut, Massachusetts and Rhode Island carry no second scale. At this
+resolution every cell in those states holds a record, so there are no
+distances to draw.
 
 The two are separate measurements with no conversion between them. The eye
 fuses them into a single sense of how well known the ground is, which is a

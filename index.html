@@ -80,54 +80,104 @@
 
 <script>
 const S = [
-{a:"AL",n:"Alabama",mx:34.65,md:17.3,er:2,ed:"TRUE",elat:32.06719,elon:-87.33791,ax:988,alat:34.3843,alon:-87.45693,note:false},
+{a:"AL",n:"Alabama",mx:34.65,md:17.3,er:2,ed:"TRUE",elat:32.06719,elon:-87.33791,ax:990,alat:34.3843,alon:-87.45693,note:false},
 {a:"AR",n:"Arkansas",mx:59.74,md:17.45,er:3.42,ed:"TRUE",elat:33.11895,elon:-91.5059,ax:946,alat:34.57589,alon:-93.03539,note:false},
-{a:"AZ",n:"Arizona",mx:61.13,md:17.15,er:3.57,ed:"TRUE",elat:32.15964,elon:-113.61201,ax:1733,alat:31.88713,alon:-109.18341,note:false},
-{a:"CA",n:"California",mx:50.03,md:17.35,er:2.88,ed:"TRUE",elat:32.69848,elon:-115.54148,ax:2396,alat:33.93901,alon:-120.08608,note:false},
-{a:"CO",n:"Colorado",mx:57.12,md:17.15,er:3.33,ed:"TRUE",elat:38.76576,elon:-102.20383,ax:1487,alat:40.00193,alon:-105.4069,note:false},
-{a:"CT",n:"Connecticut",mx:null,md:null,er:null,ed:"FALSE",elat:null,elon:null,ax:682,alat:41.98417,alon:-73.31439,note:true},
+{a:"AZ",n:"Arizona",mx:61.13,md:17.15,er:3.57,ed:"TRUE",elat:32.15964,elon:-113.61201,ax:1787,alat:31.88713,alon:-109.18341,note:false},
+{a:"CA",n:"California",mx:50.03,md:17.37,er:2.88,ed:"TRUE",elat:32.69848,elon:-115.54148,ax:2400,alat:33.93901,alon:-120.08608,note:true},
+{a:"CO",n:"Colorado",mx:57.12,md:17.15,er:3.33,ed:"TRUE",elat:38.76576,elon:-102.20383,ax:1500,alat:40.00193,alon:-105.4069,note:false},
+{a:"CT",n:"Connecticut",mx:null,md:null,er:null,ed:"FALSE",elat:null,elon:null,ax:695,alat:41.98417,alon:-73.31439,note:true},
 {a:"DE",n:"Delaware",mx:null,md:null,er:null,ed:"FALSE",elat:null,elon:null,ax:255,alat:39.80478,alon:-75.64587,note:false},
-{a:"FL",n:"Florida",mx:17.44,md:17.16,er:1.02,ed:"FALSE",elat:26.89599,elon:-80.61211,ax:2753,alat:28.75286,alon:-81.18669,note:false},
-{a:"GA",n:"Georgia",mx:28.01,md:17.19,er:1.63,ed:"TRUE",elat:31.06836,elon:-84.75518,ax:831,alat:34.72707,alon:-84.0029,note:false},
-{a:"IA",n:"Iowa",mx:19.75,md:17.37,er:1.14,ed:"FALSE",elat:43.05985,elon:-93.88709,ax:1774,alat:42.91717,alon:-91.81927,note:false},
-{a:"ID",n:"Idaho",mx:38.58,md:17.6,er:2.19,ed:"TRUE",elat:42.73305,elon:-113.57279,ax:895,alat:48.28021,alon:-116.80167,note:false},
-{a:"IL",n:"Illinois",mx:33.18,md:17.34,er:1.91,ed:"TRUE",elat:38.23572,elon:-88.39244,ax:1053,alat:37.52362,alon:-88.67446,note:false},
+{a:"FL",n:"Florida",mx:17.44,md:17.16,er:1.02,ed:"FALSE",elat:26.89599,elon:-80.61211,ax:2756,alat:28.75286,alon:-81.18669,note:false},
+{a:"GA",n:"Georgia",mx:28.01,md:17.19,er:1.63,ed:"TRUE",elat:31.06836,elon:-84.75518,ax:855,alat:34.72707,alon:-84.0029,note:false},
+{a:"IA",n:"Iowa",mx:19.75,md:17.37,er:1.14,ed:"FALSE",elat:43.05985,elon:-93.88709,ax:1788,alat:42.91717,alon:-91.81927,note:false},
+{a:"ID",n:"Idaho",mx:38.58,md:17.6,er:2.19,ed:"TRUE",elat:42.73305,elon:-113.57279,ax:896,alat:48.28021,alon:-116.80167,note:false},
+{a:"IL",n:"Illinois",mx:33.18,md:17.34,er:1.91,ed:"TRUE",elat:38.23572,elon:-88.39244,ax:1045,alat:37.52362,alon:-88.67446,note:false},
 {a:"IN",n:"Indiana",mx:44.41,md:17.52,er:2.53,ed:"TRUE",elat:40.40457,elon:-86.18902,ax:525,alat:39.03447,alon:-86.2127,note:false},
 {a:"KS",n:"Kansas",mx:60.93,md:17.88,er:3.41,ed:"TRUE",elat:37.61879,elon:-101.08634,ax:861,alat:38.8338,alon:-95.14542,note:false},
-{a:"KY",n:"Kentucky",mx:33.7,md:17.39,er:1.94,ed:"TRUE",elat:37.19266,elon:-85.45383,ax:492,alat:37.00279,alon:-83.19809,note:false},
-{a:"LA",n:"Louisiana",mx:51.69,md:17.4,er:2.97,ed:"TRUE",elat:32.95113,elon:-91.41114,ax:3590,alat:30.45866,alon:-91.05114,note:false},
-{a:"MA",n:"Massachusetts",mx:null,md:null,er:null,ed:"FALSE",elat:null,elon:null,ax:522,alat:42.23894,alon:-71.27185,note:true},
-{a:"MD",n:"Maryland",mx:17.15,md:17.15,er:1,ed:"FALSE",elat:38.29976,elon:-76.85702,ax:1346,alat:38.28058,alon:-75.53374,note:false},
-{a:"ME",n:"Maine",mx:32.71,md:17.39,er:1.88,ed:"TRUE",elat:46.71023,elon:-69.95581,ax:2162,alat:44.3018,alon:-68.26337,note:true},
-{a:"MI",n:"Michigan",mx:33.75,md:17.43,er:1.94,ed:"TRUE",elat:42.58224,elon:-82.61807,ax:3249,alat:48.10547,alon:-88.69958,note:false},
-{a:"MN",n:"Minnesota",mx:36.06,md:17.53,er:2.06,ed:"TRUE",elat:48.18724,elon:-95.50374,ax:2555,alat:48.44042,alon:-92.85775,note:false},
-{a:"MO",n:"Missouri",mx:20.27,md:17.22,er:1.18,ed:"FALSE",elat:38.26066,elon:-94.25826,ax:1210,alat:36.68739,alon:-92.84469,note:false},
-{a:"MS",n:"Mississippi",mx:42.79,md:17.36,er:2.46,ed:"TRUE",elat:33.50491,elon:-91.06304,ax:804,alat:31.03458,alon:-90.86347,note:false},
+{a:"KY",n:"Kentucky",mx:33.7,md:17.39,er:1.94,ed:"TRUE",elat:37.19266,elon:-85.45383,ax:573,alat:37.00279,alon:-83.19809,note:false},
+{a:"LA",n:"Louisiana",mx:51.69,md:17.4,er:2.97,ed:"TRUE",elat:32.95113,elon:-91.41114,ax:3598,alat:30.45866,alon:-91.05114,note:false},
+{a:"MA",n:"Massachusetts",mx:null,md:null,er:null,ed:"FALSE",elat:null,elon:null,ax:523,alat:42.23894,alon:-71.27185,note:true},
+{a:"MD",n:"Maryland",mx:17.15,md:17.15,er:1,ed:"FALSE",elat:38.29976,elon:-76.85702,ax:1347,alat:38.28058,alon:-75.53374,note:false},
+{a:"ME",n:"Maine",mx:32.71,md:17.39,er:1.88,ed:"TRUE",elat:46.71023,elon:-69.95581,ax:2170,alat:44.3018,alon:-68.26337,note:true},
+{a:"MI",n:"Michigan",mx:33.75,md:17.43,er:1.94,ed:"TRUE",elat:42.58224,elon:-82.61807,ax:3270,alat:48.10547,alon:-88.69958,note:false},
+{a:"MN",n:"Minnesota",mx:36.06,md:17.54,er:2.06,ed:"TRUE",elat:48.18724,elon:-95.50374,ax:2555,alat:48.44042,alon:-92.85775,note:false},
+{a:"MO",n:"Missouri",mx:20.27,md:17.22,er:1.18,ed:"FALSE",elat:38.26066,elon:-94.25826,ax:1212,alat:36.68739,alon:-92.84469,note:false},
+{a:"MS",n:"Mississippi",mx:42.79,md:17.36,er:2.46,ed:"TRUE",elat:33.50491,elon:-91.06304,ax:807,alat:31.03458,alon:-90.86347,note:false},
 {a:"MT",n:"Montana",mx:100.44,md:17.9,er:5.61,ed:"TRUE",elat:48.92936,elon:-106.02382,ax:888,alat:45.86538,alon:-111.95722,note:true},
-{a:"NC",n:"North Carolina",mx:17.7,md:17.05,er:1.04,ed:"FALSE",elat:35.44648,elon:-81.8273,ax:4490,alat:35.52946,alon:-83.48531,note:false},
+{a:"NC",n:"North Carolina",mx:17.7,md:17.05,er:1.04,ed:"FALSE",elat:35.44648,elon:-81.8273,ax:4582,alat:35.52946,alon:-83.48531,note:false},
 {a:"ND",n:"North Dakota",mx:83.6,md:17.79,er:4.7,ed:"TRUE",elat:46.08054,elon:-101.7535,ax:1189,alat:46.9203,alon:-103.50316,note:false},
-{a:"NE",n:"Nebraska",mx:58.68,md:18.03,er:3.26,ed:"TRUE",elat:41.94997,elon:-102.43252,ax:365,alat:41.87053,alon:-103.61822,note:false},
-{a:"NH",n:"New Hampshire",mx:17.48,md:17.44,er:1,ed:"FALSE",elat:42.97775,elon:-71.37636,ax:2400,alat:44.22235,alon:-71.20525,note:true},
-{a:"NJ",n:"New Jersey",mx:17.37,md:17.31,er:1,ed:"FALSE",elat:40.2558,elon:-74.25529,ax:1563,alat:39.70255,alon:-74.68378,note:false},
-{a:"NM",n:"New Mexico",mx:89.38,md:18.03,er:4.96,ed:"TRUE",elat:34.283,elon:-103.71608,ax:726,alat:35.7537,alon:-105.7281,note:false},
+{a:"NE",n:"Nebraska",mx:58.68,md:18.03,er:3.26,ed:"TRUE",elat:41.94997,elon:-102.43252,ax:366,alat:41.87053,alon:-103.61822,note:false},
+{a:"NH",n:"New Hampshire",mx:17.48,md:17.44,er:1,ed:"FALSE",elat:42.97775,elon:-71.37636,ax:2406,alat:44.22235,alon:-71.20525,note:true},
+{a:"NJ",n:"New Jersey",mx:17.31,md:17.3,er:1,ed:"FALSE",elat:39.57624,elon:-75.27151,ax:1574,alat:39.70255,alon:-74.68378,note:false},
+{a:"NM",n:"New Mexico",mx:89.38,md:18.03,er:4.96,ed:"TRUE",elat:34.283,elon:-103.71608,ax:728,alat:35.7537,alon:-105.7281,note:false},
 {a:"NV",n:"Nevada",mx:54.44,md:18.14,er:3,ed:"TRUE",elat:41.11974,elon:-116.56653,ax:487,alat:38.98805,alon:-114.27949,note:false},
-{a:"NY",n:"New York",mx:33.49,md:17.37,er:1.93,ed:"TRUE",elat:44.78299,elon:-75.35609,ax:600,alat:44.30448,alon:-73.91782,note:false},
-{a:"OH",n:"Ohio",mx:49.31,md:17.4,er:2.83,ed:"TRUE",elat:41.13122,elon:-84.501,ax:767,alat:38.77357,alon:-83.51607,note:false},
+{a:"NY",n:"New York",mx:33.49,md:17.36,er:1.93,ed:"TRUE",elat:44.78299,elon:-75.35609,ax:1124,alat:42.09826,alon:-73.50478,note:true},
+{a:"OH",n:"Ohio",mx:49.31,md:17.4,er:2.83,ed:"TRUE",elat:41.13122,elon:-84.501,ax:768,alat:38.77357,alon:-83.51607,note:false},
 {a:"OK",n:"Oklahoma",mx:50.85,md:17.62,er:2.89,ed:"TRUE",elat:34.17134,elon:-98.39508,ax:416,alat:34.19138,alon:-94.65248,note:false},
-{a:"OR",n:"Oregon",mx:46.03,md:17.83,er:2.58,ed:"TRUE",elat:42.48687,elon:-118.09049,ax:1325,alat:44.42551,alon:-122.00566,note:true},
-{a:"PA",n:"Pennsylvania",mx:42.52,md:17.32,er:2.46,ed:"TRUE",elat:40.66645,elon:-79.34084,ax:863,alat:41.18053,alon:-74.97674,note:false},
-{a:"RI",n:"Rhode Island",mx:null,md:null,er:null,ed:"FALSE",elat:null,elon:null,ax:468,alat:41.53384,alon:-71.76269,note:true},
-{a:"SC",n:"South Carolina",mx:27.98,md:17.13,er:1.63,ed:"TRUE",elat:34.00457,elon:-81.61035,ax:1389,alat:34.97803,alon:-83.0952,note:false},
+{a:"OR",n:"Oregon",mx:46.03,md:17.83,er:2.58,ed:"TRUE",elat:42.48687,elon:-118.09049,ax:1334,alat:44.42551,alon:-122.00566,note:true},
+{a:"PA",n:"Pennsylvania",mx:34.93,md:17.29,er:2.02,ed:"TRUE",elat:40.74055,elon:-78.94718,ax:863,alat:41.18053,alon:-74.97674,note:false},
+{a:"RI",n:"Rhode Island",mx:null,md:null,er:null,ed:"FALSE",elat:null,elon:null,ax:565,alat:41.53384,alon:-71.76269,note:true},
+{a:"SC",n:"South Carolina",mx:27.98,md:17.13,er:1.63,ed:"TRUE",elat:34.00457,elon:-81.61035,ax:1422,alat:34.97803,alon:-83.0952,note:false},
 {a:"SD",n:"South Dakota",mx:91.43,md:17.96,er:5.09,ed:"TRUE",elat:45.94206,elon:-101.90725,ax:1041,alat:43.80465,alon:-103.47111,note:false},
-{a:"TN",n:"Tennessee",mx:41.36,md:17.35,er:2.38,ed:"TRUE",elat:35.57476,elon:-89.74626,ax:2685,alat:35.68466,alon:-83.49258,note:false},
-{a:"TX",n:"Texas",mx:110,md:27.81,er:3.96,ed:"TRUE",elat:32.39191,elon:-102.60624,ax:1454,alat:29.26965,alon:-103.22999,note:false},
-{a:"UT",n:"Utah",mx:45.99,md:17.31,er:2.66,ed:"TRUE",elat:39.76173,elon:-113.52595,ax:407,alat:37.66338,alon:-112.75617,note:false},
-{a:"VA",n:"Virginia",mx:17.65,md:17.07,er:1.03,ed:"FALSE",elat:37.06553,elon:-82.09016,ax:1703,alat:38.59417,alon:-78.36955,note:false},
-{a:"VT",n:"Vermont",mx:17.42,md:17.38,er:1,ed:"FALSE",elat:43.31304,elon:-72.77104,ax:1244,alat:43.85149,alon:-73.12698,note:true},
-{a:"WA",n:"Washington",mx:19.1,md:17.72,er:1.08,ed:"FALSE",elat:46.4093,elon:-118.38811,ax:1594,alat:46.49944,alon:-121.78147,note:true},
+{a:"TN",n:"Tennessee",mx:41.36,md:17.36,er:2.38,ed:"TRUE",elat:35.57476,elon:-89.74626,ax:2692,alat:35.68466,alon:-83.49258,note:false},
+{a:"TX",n:"Texas",mx:110,md:27.81,er:3.96,ed:"TRUE",elat:32.39191,elon:-102.60624,ax:1456,alat:29.26965,alon:-103.22999,note:false},
+{a:"UT",n:"Utah",mx:45.99,md:17.31,er:2.66,ed:"TRUE",elat:39.76173,elon:-113.52595,ax:408,alat:37.66338,alon:-112.75617,note:false},
+{a:"VA",n:"Virginia",mx:17.65,md:17.07,er:1.03,ed:"FALSE",elat:37.06553,elon:-82.09016,ax:1778,alat:38.59417,alon:-78.36955,note:false},
+{a:"VT",n:"Vermont",mx:17.39,md:17.37,er:1,ed:"FALSE",elat:44.01775,elon:-72.27574,ax:1245,alat:43.85149,alon:-73.12698,note:true},
+{a:"WA",n:"Washington",mx:19.1,md:17.72,er:1.08,ed:"FALSE",elat:46.4093,elon:-118.38811,ax:1599,alat:46.49944,alon:-121.78147,note:true},
 {a:"WI",n:"Wisconsin",mx:19.7,md:17.48,er:1.13,ed:"FALSE",elat:45.19274,elon:-91.97099,ax:1158,alat:46.41645,alon:-91.19844,note:false},
-{a:"WV",n:"West Virginia",mx:28.2,md:17.22,er:1.64,ed:"TRUE",elat:37.49528,elon:-81.92613,ax:956,alat:38.67653,alon:-79.51194,note:false},
+{a:"WV",n:"West Virginia",mx:28.2,md:17.22,er:1.64,ed:"TRUE",elat:37.49528,elon:-81.92613,ax:996,alat:38.67653,alon:-79.51194,note:false},
 {a:"WY",n:"Wyoming",mx:50.01,md:17.55,er:2.85,ed:"TRUE",elat:42.62406,elon:-107.92276,ax:557,alat:44.85857,alon:-110.35686,note:false},];
+</script>
+<script type="text/plain" id="note-CA">
+apex_place: Santa Rosa Island, Santa Barbara County
+apex_mechanism: two inventories
+
+California's densest cell lies on Santa Rosa Island, in Channel Islands National Park. It holds 2,400 records from 42 collectors. Almost all of them come from two short periods: 1,343 records from the 1990s, nearly all from 1993-1994, and 1,020 from the 2000s. Before 1990 the cell has two dated records.
+
+The first period is an Arizona State University party: Nash, Ryan, Wetmore and Marsh account for 1,234 records, most of them dated 1994. Stephen and Sylvia Sharnoff were on the island the same year, collecting the voucher specimens behind the photographs in Lichens of North America; those are preserved specimens, most of them at the Canadian Museum of Nature, entered under several spellings of the pair's names. The second is the National Park's own lichen inventory, carried out with the UC Riverside herbarium: Knudsen has 890 records, nearly all from 2006-2009, and Kindsvater's 106 from 2003-2004 are at Santa Barbara Botanic Garden.
+
+The taxa read as an inventory with fog-zone coast taxa. No name reaches 2% of the records; the ten most frequent are each taken between 30 and 41 times, and they include Niebla, Vermilacinia, Teloschistes flavicans and Leucodermia leucomelos. The cell is dense; an island is a bounded thing to inventory and a boat trip concentrates the collectors.
+
+---- CA -- California ----
+  apex cell: 126454 at 33.9390 N, 120.0861 W
+  summary says 2,400 specimens
+  records in cell: 2,400
+  distinct collectors: 42   undated records: 7
+  year range: 1929 - 2021
+
+  top collectors (six largest):
+   recordedByEd   n first last
+     Knudsen,K. 890  2006 2015
+  Nash,T.H.,III 443  1994 1994
+      Ryan,B.D. 321  1994 1994
+   Wetmore,C.M. 280  1994 1994
+ Marsh,J.E.,Ms. 190  1993 1994
+  L. Kindsvater 106  2003 2004
+
+  by decade:
+ decade    n
+   1920    2
+   1990 1343
+   2000 1020
+   2010    7
+   2020   21
+
+  top taxa (% of 2,400 records):
+  n pct                    taxon
+ 41 1.7 Vermilacinia ceruchoides
+ 40 1.7   Flavoparmelia caperata
+ 38 1.6              Lepra amara
+ 38 1.6           Niebla homalea
+ 38 1.6   Vermilacinia cephalota
+ 34 1.4   Leucodermia leucomelos
+ 34 1.4       Ramalina farinacea
+ 32 1.3       Lepraria xerophila
+ 30 1.2           Buellia sequax
+ 30 1.2   Teloschistes flavicans
+
+2026-09-18
+
 </script>
 <script type="text/plain" id="note-CT">
 Connecticut has a long history
@@ -438,6 +488,60 @@ top taxa (% of 2,400 records):
 2026.09.04
 
 </script>
+<script type="text/plain" id="note-NY">
+Source: public profile accessed online 2026.09.15
+
+Steve Messier is a Connecticut based lichenologist working
+with a Berkshires conservation group.
+
+---- NY -- New York ----
+  apex cell: 142389 at 42.0983 N, 73.5048 W
+  summary says 1,124 specimens
+  records in cell: 1,124
+  distinct collectors: 28   undated records: 40
+  year range: 1900 - 2025
+
+  top collectors:
+               recordedByEd   n first last
+               Messier,S.N. 506  2019 2025
+ S. N. Messier & C. Mangels 220  2021 2022
+                   May,P.F. 167  1999 2000
+              Mangels, C.R.  58  2025 2025
+                Darrow,R.A.  38  1935 1935
+                 Lay,E.,Ms.  36  1995 2012
+              Har. Schaefer  27  2021 2021
+             J. M. Franklin  16  2017 2017
+
+  by decade:
+ decade   n
+   1900   1
+   1910   6
+   1920   7
+   1930  48
+   1940   6
+   1950   4
+   1980   3
+   1990  73
+   2000  87
+   2010  53
+   2020 796
+
+  top taxa (% of 1,124 records):
+  n pct                    taxon
+ 24 2.1    Palicella filamentosa
+ 22 2.0 Umbilicaria muhlenbergii
+ 21 1.9      Fuscidea arboricola
+ 20 1.8       Acarospora fuscata
+ 20 1.8        Cladonia squamosa
+ 20 1.8        Punctelia rudecta
+ 19 1.7       Lecanora pulicaris
+ 19 1.7         Parmelia sulcata
+ 18 1.6     Cladonia rangiferina
+ 18 1.6   Flavoparmelia caperata
+
+2026.09.15
+
+</script>
 <script type="text/plain" id="note-OR">
 apex_place: near Santiam Junction, Linn County
 apex_mechanism: survey collecting
@@ -637,38 +741,6 @@ deal of Washington material.
 
 
 2026.08.30
-
-</script>
-<script type="text/plain" id="note-_intro">
-apex_place: how to read a sheet
-
-Each sheet divides a state into hexagonal cells about 18 km across. A cell is
-one of two things and never both.
-
-Cyan means the cell holds at least one record. Brighter cyan means more
-records, on a log scale.
-Magenta through yellow means the cell holds no record, with color giving the
-distance to the nearest cell that does.
-
-Connecticut, Massachusetts and Rhode Island carry no second scale. At this
-resolution every cell in those states holds a record, so there are no
-distances to draw.
-
-The two are separate measurements with no conversion between them. The eye
-fuses them into a single sense of how well the ground is known, which is a
-fair reading, but only as an ordering: the map supports "this is better known
-than that" and does not support arithmetic.
-
-The red diamond marks the centre of the largest record-free circle, and the
-blue diamond the cell holding the most specimens. Either is omitted where it
-would mark a tie rather than a standout.
-
-An empty cell does not mean nobody has collected there. It means no record 
-meeting the study requirements was produced — the specimen may be undatabased, 
-databased without coordinates, localized too vaguely to place, or determined only to genus.
-
-Use the selector to choose a state, or the arrow keys to step through all
-forty-eight.
 
 </script>
 <script>

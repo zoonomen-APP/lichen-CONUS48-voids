@@ -23,7 +23,7 @@ The taxa read as an inventory with fog-zone coast taxa. No name reaches 2% of th
  Marsh,J.E.,Ms. 190  1993 1994
   L. Kindsvater 106  2003 2004
 
-  by decade:
+  apex cell records by decade:
  decade    n
    1920    2
    1990 1343
@@ -31,7 +31,7 @@ The taxa read as an inventory with fog-zone coast taxa. No name reaches 2% of th
    2010    7
    2020   21
 
-  top taxa (% of 2,400 records):
+  top apex cell taxa (% of 2,400 records):
   n pct                    taxon
  41 1.7 Vermilacinia ceruchoides
  40 1.7   Flavoparmelia caperata

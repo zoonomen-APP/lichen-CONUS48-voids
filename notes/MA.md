@@ -29,7 +29,7 @@ apex cell: 140692 at 42.2389 N, 71.2719 W
        Riddle,L.W.   5  1898 1908
    Howard,G.E.,Ms.   4  1924 1932
 
-  by decade:
+  apex cell records by decade:
  decade   n
    1850   1
    1880  83
@@ -41,7 +41,7 @@ apex cell: 140692 at 42.2389 N, 71.2719 W
    1990  26
    2010   9
 
-  top taxa (% of 522 records):
+  top apex cell taxa (% of 522 records):
   n pct                    taxon
  22 4.2     Cladonia cristatella
  19 3.6        Dibaeis baeomyces

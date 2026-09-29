@@ -12,7 +12,7 @@ records stopping about 23 years ago.
   distinct collectors: 42   undated records: 13
   year range: 1882 - 2011
 
-  top collectors:
+  top apex cell collectors:
   recordedByEd   n first last
  Lendemer,J.C. 158  2003 2003
    Harris,R.C. 122  1981 2003
@@ -23,7 +23,7 @@ records stopping about 23 years ago.
   Proctor,N.S.  22  2007 2011
       May,P.F.  20  2003 2003
 
-  by decade:
+  apex cell records by decade:
  decade   n
    1880   1
    1900   1
@@ -39,7 +39,7 @@ records stopping about 23 years ago.
    2000 508
    2010   1
 
-  top taxa (% of 682 records):
+  top apex cell taxa (% of 682 records):
   n pct                    taxon
  15 2.2 Stereocaulon glaucescens
  13 1.9      Agonimia opuntiella

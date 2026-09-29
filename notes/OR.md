@@ -11,7 +11,7 @@ on the crest of the Cascades.
   distinct collectors: 74   undated records: 6
   year range: 1926 - 2025
 
-  top collectors:
+  top apex cell collectors:
     recordedByEd   n first last
       Hardman,A. 224  2013 2015
       Mikulin,A. 132  1995 1996
@@ -22,7 +22,7 @@ on the crest of the Cascades.
         Boyll,M.  74  2004 2005
       Glavich,D.  58  2004 2004
 
-  by decade:
+  apex cell records by decade:
  decade   n
    1920   1
    1930   2

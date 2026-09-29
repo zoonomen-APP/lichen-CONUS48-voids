@@ -10,7 +10,7 @@ with a Berkshires conservation group.
   distinct collectors: 28   undated records: 40
   year range: 1900 - 2025
 
-  top collectors:
+  top apex cell collectors:
                recordedByEd   n first last
                Messier,S.N. 506  2019 2025
  S. N. Messier & C. Mangels 220  2021 2022
@@ -21,7 +21,7 @@ with a Berkshires conservation group.
               Har. Schaefer  27  2021 2021
              J. M. Franklin  16  2017 2017
 
-  by decade:
+  apex cell records by decade:
  decade   n
    1900   1
    1910   6
@@ -35,7 +35,7 @@ with a Berkshires conservation group.
    2010  53
    2020 796
 
-  top taxa (% of 1,124 records):
+  top apex cell taxa (% of 1,124 records):
   n pct                    taxon
  24 2.1    Palicella filamentosa
  22 2.0 Umbilicaria muhlenbergii

@@ -20,7 +20,7 @@ sheets.
   distinct collectors: 7   undated records: 0 
   year range: 1969 - 2011 
 
-  top collectors:
+  top apex cell collectors:
       recordedByEd   n first last
     Salix,J.S.,Ms. 793  2000 2011
        McCune,B.P.  39  1983 2001
@@ -30,7 +30,7 @@ sheets.
          Jim Riley   1  2011 2011
  Lisa A. Schubloom   1  1992 1992
 
-  by decade:
+  apex cell records by decade:
  decade   n
    1960  10
    1970  26
@@ -39,7 +39,7 @@ sheets.
    2000 819
    2010   2
 
-  top taxa (% of 888 records):
+  top apex cell taxa (% of 888 records):
   n pct                   taxon
  32 3.6          Physcia caesia
  25 2.8      Cladonia fimbriata

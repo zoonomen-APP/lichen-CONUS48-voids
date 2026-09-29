@@ -11,7 +11,7 @@ in Lewis County where the site is centrally located between Mts. Rainier, Adams,
   distinct collectors: 36   undated records: 0
   year range: 1972 - 2021
 
-  top collectors:
+  top apex cell collectors:
       recordedByEd   n first last
        Ricklefs,J. 548  2000 2001
    Chris O'Connell 159  2000 2000
@@ -22,7 +22,7 @@ in Lewis County where the site is centrally located between Mts. Rainier, Adams,
  Elizabeth Hoecker  59  2000 2000
          Geiser,L.  57  1994 2004
 
-  by decade:
+  apex cell records by decade:
  decade    n
    1970   31
    1990  284

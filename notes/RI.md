@@ -14,7 +14,7 @@ a tie.
   distinct collectors: 19   undated records: 11
   year range: 1902 - 2025
 
-  top collectors:
+  top apex cell collectors:
  recordedByEd   n first last
  Raithel,C.J. 316  2007 2025
  Flenniken,D.  69  2001 2001
@@ -25,7 +25,7 @@ a tie.
    Lay,E.,Ms.   9  2006 2006
   Anne Hebert   5   Inf -Inf
 
-  by decade:
+  apex cell records by decade:
  decade   n
    1900   1
    1910   4
@@ -34,7 +34,7 @@ a tie.
    2010 143
    2020 125
 
-  top taxa (% of 468 records):
+  top apex cell taxa (% of 468 records):
   n pct                   taxon
  39 8.3   Parmotrema hypotropum
  21 4.5 Parmotrema hypoleucinum

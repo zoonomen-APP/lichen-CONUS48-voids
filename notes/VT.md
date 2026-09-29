@@ -12,7 +12,7 @@ no resampling for about 100 years.
   distinct collectors: 21   undated records: 21
   year range: 1885 - 2001
 
-    top collectors:
+    top apex cell collectors:
       recordedByEd    n first last
        Dutton,D.L. 1198  1909 1929
        Farlow,W.G.   11  1896 1896
@@ -23,7 +23,7 @@ no resampling for about 100 years.
          Egan,R.S.    2  1974 1974
       Pringle,C.G.    2   Inf -Inf
 
-by decade:
+apex cell records by decade:
  decade   n
    1880   1
    1890  13
@@ -34,7 +34,7 @@ by decade:
    1970   2
    2000   3
 
-  top taxa (% of 1,244 records):
+  top apex cell taxa (% of 1,244 records):
   n pct                          taxon
  36 2.9               Cladonia furcata
  22 1.8              Cladonia squamosa

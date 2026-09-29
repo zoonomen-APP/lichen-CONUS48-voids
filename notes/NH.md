@@ -15,7 +15,7 @@ but many of those records lack latitude and longitude values.
   year range: 1837 - 2017
 
 
-  top collectors:
+  top apex cell collectors:
                   recordedByEd   n first last
                   Wetmore,C.M. 633  1988 1993
                     Crane,J.L. 384  1973 2005
@@ -26,7 +26,7 @@ but many of those records lack latitude and longitude values.
                   Higginson,S.  99  1880 1888
   J.L. Crane & J.D. Schoknecht  49  1973 1991
 
-  by decade:
+  apex cell records by decade:
  decade   n
    1830  12
    1840  33
@@ -48,7 +48,7 @@ but many of those records lack latitude and longitude values.
    2000  63
    2010 123
 
-top taxa (% of 2,400 records):
+top apex cell taxa (% of 2,400 records):
   n pct                    taxon
  62 2.6       Cetraria islandica
  60 2.5      Hypogymnia physodes

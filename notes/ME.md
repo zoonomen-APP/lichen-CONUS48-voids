@@ -13,51 +13,52 @@ evident here.
 
 ---- ME -- Maine ----
   apex cell: 132674 at 44.3018 N, 68.2634 W
-  summary says 2,162 specimens
-  records in cell: 2,162 
-  distinct collectors: 81   undated records: 81 
-  year range: 1856 - 2018 
+  summary says 2,170 specimens
+  records in cell: 2,170
+  distinct collectors: 82   undated records: 81
+  year range: 1856 - 2018
 
-  top collectors:
-  recordedByEd    n
-	Wetmore,C.M.    791
-	Sullivan,T.J.   386
-	Taylor,R.M.     186
-	Egan,R.S.       96
-	Tucker,S.C.,Ms. 85
-	White,T.G.      71
-	Hinds,P.L.,Ms.  56
-	Frank,E.M.,Ms.  53
+  top apex cell collectors:
+    recordedByEd   n first last
+    Wetmore,C.M. 791  1979 1983
+   Sullivan,T.J. 386  1964 1994
+     Taylor,R.M. 186  1965 1967
+       Egan,R.S.  96  1972 1974
+ Tucker,S.C.,Ms.  85  1986 1986
+      White,T.G.  71  1891 1891
+  Hinds,P.L.,Ms.  56  1977 1992
+  Frank,E.M.,Ms.  53  1966 1969
 
-by decade:
+  apex cell records by decade:
  decade    n
    1850    1
    1870    2
    1880    6
    1890    3
    1900    7
-   1910    1
+   1910    2
    1920   13
    1930   46
    1940   24
    1950   11
-   1960  243
+   1960  244
    1970  209
-   1980 1304
-   1990  147
+   1980 1306
+   1990  148
    2000   42
-   2010   22
+   2010   25
 
-top 10 taxa n and % of binomial records
-n       pct     taxon
-46      2.1     Cladonia squamosa
-42      1.9     Hypogymnia physodes
-37      1.7     Lobaria pulmonaria
-35      1.6     Platismatia tuckermanii
-34      1.6     Cladonia strepsilis
-32      1.5     Cladonia uncialis
-31      1.4     Cladonia stellaris
-31      1.4     Lasallia papulosa
-30      1.4     Lobaria quercizans
-28      1.3     Parmelia saxatilis
+  top apex cell taxa (% of 2,170 records):
+  n pct                   taxon
+ 47 2.2      Cladonia stellaris
+ 46 2.1       Cladonia squamosa
+ 43 2.0    Cladonia rangiferina
+ 43 2.0     Hypogymnia physodes
+ 37 1.7      Lobaria pulmonaria
+ 35 1.6 Platismatia tuckermanii
+ 34 1.6     Cladonia strepsilis
+ 34 1.6    Ricasolia quercizans
+ 33 1.5    Umbilicaria papulosa
+ 32 1.5       Cladonia uncialis
 
+2026.09.28
